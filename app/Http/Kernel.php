@@ -4,6 +4,7 @@ namespace Pterodactyl\Http;
 
 use Fideloper\Proxy\TrustProxies;
 use Illuminate\Auth\Middleware\Authorize;
+use Pterodactyl\Http\Middleware\SetTheme;
 use Illuminate\Auth\Middleware\Authenticate;
 use Pterodactyl\Http\Middleware\TrimStrings;
 use Illuminate\Session\Middleware\StartSession;
@@ -64,6 +65,7 @@ class Kernel extends HttpKernel
             SubstituteBindings::class,
             LanguageMiddleware::class,
             RequireTwoFactorAuthentication::class,
+            SetTheme::class,
         ],
         'api' => [
             HMACAuthorization::class,

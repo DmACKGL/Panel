@@ -171,8 +171,8 @@ return [
         /*
          * Additional Dependencies
          */
+        Igaster\LaravelTheme\themeServiceProvider::class,
         PragmaRX\Google2FA\Vendor\Laravel\ServiceProvider::class,
-        igaster\laravelTheme\themeServiceProvider::class,
         Prologue\Alerts\AlertsServiceProvider::class,
         Krucas\Settings\Providers\SettingsServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
@@ -233,7 +233,7 @@ return [
         'Settings' => Krucas\Settings\Facades\Settings::class,
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
-        'Theme' => igaster\laravelTheme\Facades\Theme::class,
+        'Theme' => Igaster\LaravelTheme\Facades\Theme::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,

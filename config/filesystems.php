@@ -47,6 +47,11 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'themes' => [
+            'driver' => 'local',
+            'root' => resource_path('themes'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

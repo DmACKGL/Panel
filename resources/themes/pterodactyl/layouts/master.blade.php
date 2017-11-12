@@ -226,7 +226,7 @@
                             @endif
                             @foreach (Alert::getMessages() as $type => $messages)
                                 @foreach ($messages as $message)
-                                    <div class="callout callout-{{ $type }} alert-dismissable" role="alert">
+                                    <div class="alert alert-{{ $type }} alert-dismissable" role="alert">
                                         {!! $message !!}
                                     </div>
                                 @endforeach

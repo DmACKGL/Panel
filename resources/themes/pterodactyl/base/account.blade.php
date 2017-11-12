@@ -57,6 +57,34 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">@lang('base.account.change_theme')</h3>
+                    </div>
+                    <form action="{{ route('account.theme') }}" method="POST">
+                        <div class="box-body">
+                            <div class="form-group no-margin-bottom">
+                                <div>
+                                    <select name="theme" class="form-control">
+                                        @foreach($themes as $theme)
+                                            <option value="{{ $theme }}">{{ studly_case($theme) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-footer">
+                            {!! csrf_field() !!}
+                            {!! method_field('PUT') !!}
+                            <input type="hidden" name="do_action" value="password" />
+                            <input type="submit" class="btn btn-primary btn-sm" value="@lang('base.account.set_theme')" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="col-sm-6">
         <div class="row">

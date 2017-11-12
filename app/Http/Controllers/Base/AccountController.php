@@ -29,6 +29,7 @@ use Prologue\Alerts\AlertsMessageBag;
 use Pterodactyl\Http\Controllers\Controller;
 use Pterodactyl\Services\Users\UserUpdateService;
 use Pterodactyl\Http\Requests\Base\AccountDataFormRequest;
+use Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
 
 class AccountController extends Controller
 {
@@ -36,6 +37,11 @@ class AccountController extends Controller
      * @var \Prologue\Alerts\AlertsMessageBag
      */
     protected $alert;
+
+    /**
+     * @var \Illuminate\Contracts\Filesystem\Filesystem
+     */
+    private $filesystem;
 
     /**
      * @var \Pterodactyl\Services\Users\UserUpdateService
@@ -46,13 +52,16 @@ class AccountController extends Controller
      * AccountController constructor.
      *
      * @param \Prologue\Alerts\AlertsMessageBag             $alert
+     * @param \Illuminate\Contracts\Filesystem\Factory      $filesystem
      * @param \Pterodactyl\Services\Users\UserUpdateService $updateService
      */
     public function __construct(
         AlertsMessageBag $alert,
+        FilesystemFactory $filesystem,
         UserUpdateService $updateService
     ) {
         $this->alert = $alert;
+        $this->filesystem = $filesystem;
         $this->updateService = $updateService;
     }
 
@@ -63,7 +72,9 @@ class AccountController extends Controller
      */
     public function index()
     {
-        return view('base.account');
+        $themes = $this->filesystem->disk('themes')->directories();
+
+        return view('base.account', ['themes' => $themes]);
     }
 
     /**

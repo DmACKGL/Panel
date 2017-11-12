@@ -19,7 +19,7 @@ Route::get('/status/{server}', 'IndexController@status')->name('index.status');
 */
 Route::group(['prefix' => 'account'], function () {
     Route::get('/', 'AccountController@index')->name('account');
-
+    Route::put('/theme', 'ThemeController@update')->name('account.theme');
     Route::post('/', 'AccountController@update');
 });
 
